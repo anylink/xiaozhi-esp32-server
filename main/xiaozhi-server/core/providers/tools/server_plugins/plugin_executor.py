@@ -1,5 +1,7 @@
 """服务端插件工具执行器"""
 
+import asyncio
+import inspect
 from typing import Dict, Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -40,6 +42,10 @@ class ServerPluginExecutor(ToolExecutor):
             else:
                 # 默认不传conn参数
                 result = func_item.func(**arguments)
+
+            # 支持异步函数：如果返回的是 coroutine 对象，则 await 它
+            if inspect.iscoroutine(result):
+                result = await result
 
             return result
 

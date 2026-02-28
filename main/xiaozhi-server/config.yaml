@@ -135,7 +135,7 @@ plugins:
   # 申请后通过这个链接可以找到自己的apihost：https://console.qweather.com/setting?lang=zh
   get_weather:
     api_host: "mj7p3y7naa.re.qweatherapi.com"
-    api_key: "a861d0d5e7bf4ee1a83d9a9e4f96d4da"
+    api_key: "你的和风天气API密钥"
     default_location: "广州"
   # 获取新闻插件的配置，这里根据需要的新闻类型传入对应的url链接，默认支持社会、科技、财经新闻
   # 更多类型的新闻列表查看 https://www.chinanews.com.cn/rss/
@@ -169,6 +169,14 @@ plugins:
     api_key: "ragflow-xxx"
     # ragflow知识库id
     dataset_ids: ["123456789"]
+  # 图片生成插件配置
+  # 使用硅基流动 Stable Diffusion API 生成图片
+  # 申请地址：https://cloud.siliconflow.cn/
+  # 注意：默认尺寸 512x512 更适合圆形屏幕显示
+  generate_image:
+    api_key: "你的硅基流动API密钥"
+    model: "stable-diffusion-xl-base-1.0"
+    default_size: "512x512"
 # 声纹识别配置
 voiceprint:
   # 声纹接口地址
@@ -272,6 +280,8 @@ Intent:
       #- hass_get_state
       #- hass_set_state
       #- hass_play_music
+      # 图片生成插件，支持语音生成图片功能
+      - generate_image
 
 Memory:
   mem0ai:

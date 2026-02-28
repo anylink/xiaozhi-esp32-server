@@ -20,3 +20,7 @@ services:
       - ./data:/opt/xiaozhi-esp32-server/data
       # 模型文件挂接，很重要
       - ./models/SenseVoiceSmall/model.pt:/opt/xiaozhi-esp32-server/models/SenseVoiceSmall/model.pt
+      # 自定义插件目录
+      - ./plugins_func/functions:/opt/xiaozhi-esp32-server/plugins_func/functions
+      # 插件执行器（支持异步函数）
+      - ./core/providers/tools/server_plugins/plugin_executor.py:/opt/xiaozhi-esp32-server/core/providers/tools/server_plugins/plugin_executor.py
